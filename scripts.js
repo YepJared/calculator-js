@@ -27,13 +27,14 @@ function divide(dividend, divisor) {
 }
 
 function updateInput(value) {
+    if (input.length >= 12) {input.pop()}
     input.push(value);
     inputDisplay.textContent = input.join('');
 }
 
 function updateResult(value) {
     result = value;
-    resultDisplay.textContent = value;
+    resultDisplay.textContent = value.toString().length <= 18 ? value : Number(value).toPrecision(14);
     input = [];
     inputDisplay.textContent = '\xa0';
 }
@@ -54,11 +55,23 @@ function operate() {
             break;
         case 'divide':
             result = divide(result, input.join(''));
-            updateResult(result);
+            if (result) {
+                updateResult(result);
+            } else {
+                resetPage();
+            }
             break;
         default:
             break;
     };
+}
+
+function resetPage() {
+    result = null;
+    operator = '';
+    input = [];
+    inputDisplay.innerText = '\xa0';
+    resultDisplay.innerText = '\xa0';
 }
 
 function addEventListeners() {
@@ -84,11 +97,7 @@ function addEventListeners() {
     });
 
     clear.addEventListener("click", () => {
-        result = null;
-        operator = '';
-        input = [];
-        inputDisplay.innerText = '\xa0';
-        resultDisplay.innerText = '\xa0';
+        resetPage();
     });
 
     equal.addEventListener("click", () => {

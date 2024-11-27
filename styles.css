@@ -1,11 +1,11 @@
 * {
     box-sizing: border-box;
     margin: 0;
+    font-family: sans-serif;
 }
 
 body {
     display: flex;
-    flex: 0;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -33,6 +33,15 @@ body {
     border: darkgray solid 4px;
     background-color: black;
     color: white;
+    padding: 2%;
+}
+
+.result {
+    font-size: medium;
+}
+
+.input {
+    font-size: x-large;
 }
 
 .input-container {
@@ -87,4 +96,11 @@ body {
 .equal {
     min-height: 4vh;
     min-width: 24px;
+}
+
+button {
+    font-size: x-large;
+    border: gray outset 2px;
+    border-radius: 6px;
+    background-color: white;
 }
