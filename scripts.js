@@ -66,12 +66,20 @@ function operate() {
     };
 }
 
+function removeHighlights() {
+    const highlightedOperator = document.querySelector('.chosen');
+    if (highlightedOperator) {
+        highlightedOperator.classList.remove("chosen");
+    }
+}
+
 function resetPage() {
     result = null;
     operator = '';
     input = [];
     inputDisplay.innerText = '\xa0';
     resultDisplay.innerText = '\xa0';
+    removeHighlights();
 }
 
 function addEventListeners() {
@@ -93,6 +101,8 @@ function addEventListeners() {
                 }
             }
             operator = button.id;
+            removeHighlights();
+            button.classList.add("chosen")
         });
     });
 
@@ -103,6 +113,7 @@ function addEventListeners() {
     equal.addEventListener("click", () => {
         operate();
         operator = '';
+        removeHighlights();
     });
 }
 

@@ -104,3 +104,8 @@ button {
     border-radius: 6px;
     background-color: white;
 }
+
+.chosen {
+    background-color: darkorange;
+    border-color: darkred;
+}
