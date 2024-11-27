@@ -35,7 +35,7 @@ function updateResult(value) {
     result = value;
     resultDisplay.textContent = value;
     input = [];
-    inputDisplay.textContent = '';
+    inputDisplay.textContent = '\xa0';
 }
 
 function operate() {
@@ -87,8 +87,8 @@ function addEventListeners() {
         result = null;
         operator = '';
         input = [];
-        inputDisplay.textContent = '';
-        resultDisplay.textContent = '';
+        inputDisplay.innerText = '\xa0';
+        resultDisplay.innerText = '\xa0';
     });
 
     equal.addEventListener("click", () => {
